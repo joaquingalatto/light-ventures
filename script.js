@@ -8,6 +8,7 @@ const paintSection = document.querySelector("[data-paint-section]");
 const paintLines = statementText ? [...statementText.querySelectorAll("[data-paint-line]")] : [];
 const video = document.querySelector("[data-video]");
 const videoToggles = document.querySelectorAll("[data-video-toggle]");
+const videoSoundToggle = document.querySelector("[data-video-sound]");
 const filmFrame = document.querySelector(".film-frame");
 const preloader = document.querySelector("[data-preloader]");
 const loaderGrid = document.querySelector("[data-loader-grid]");
@@ -210,7 +211,9 @@ if (sections.length) {
 if (video && filmFrame) {
   const syncVideoUI = () => {
     const isPlaying = !video.paused;
+    const isMuted = video.muted;
     filmFrame.classList.toggle("is-playing", isPlaying);
+    filmFrame.classList.toggle("is-muted", isMuted);
     videoToggles.forEach((toggle) => {
       toggle.setAttribute("aria-pressed", String(isPlaying));
       if (toggle.classList.contains("film-frame__toggle")) {
@@ -220,6 +223,10 @@ if (video && filmFrame) {
         toggle.setAttribute("aria-label", isPlaying ? "Pause film" : "Play film");
       }
     });
+    if (videoSoundToggle) {
+      videoSoundToggle.setAttribute("aria-pressed", String(!isMuted));
+      videoSoundToggle.textContent = isMuted ? "Sound Off" : "Sound On";
+    }
   };
 
   const togglePlayback = async () => {
@@ -235,9 +242,24 @@ if (video && filmFrame) {
     }
   };
 
+  const toggleSound = async () => {
+    try {
+      video.muted = !video.muted;
+      if (!video.paused) {
+        await video.play();
+      }
+    } catch (error) {
+      video.muted = true;
+    } finally {
+      syncVideoUI();
+    }
+  };
+
   videoToggles.forEach((toggle) => toggle.addEventListener("click", togglePlayback));
+  videoSoundToggle?.addEventListener("click", toggleSound);
   video.addEventListener("play", syncVideoUI);
   video.addEventListener("pause", syncVideoUI);
+  video.addEventListener("volumechange", syncVideoUI);
   syncVideoUI();
 
   if (!mediaQuery.matches) {

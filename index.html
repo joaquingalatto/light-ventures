@@ -192,9 +192,14 @@
           <figure class="film-frame reveal">
             <div class="film-frame__topline">
               <span>In Motion</span>
-              <button class="film-frame__toggle" type="button" data-video-toggle aria-pressed="false">
-                Pause Film
-              </button>
+              <div class="film-frame__controls">
+                <button class="film-frame__toggle" type="button" data-video-toggle aria-pressed="false">
+                  Pause Film
+                </button>
+                <button class="film-frame__toggle film-frame__toggle--sound" type="button" data-video-sound aria-pressed="false">
+                  Sound Off
+                </button>
+              </div>
             </div>
             <div class="film-frame__viewport">
               <div class="film-frame__ring film-frame__ring--a" aria-hidden="true"></div>

@@ -742,6 +742,13 @@ body.is-ready .hero__headline-line:nth-child(3) {
   color: rgba(42, 40, 41, 0.62);
 }
 
+.film-frame__controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
 .film-frame__toggle {
   padding: 0.5rem 0.8rem;
   border-radius: 999px;
@@ -756,6 +763,10 @@ body.is-ready .hero__headline-line:nth-child(3) {
   background: var(--navy);
   color: var(--bg);
   border-color: var(--navy);
+}
+
+.film-frame__toggle--sound {
+  min-width: 7rem;
 }
 
 .film-frame__viewport {
@@ -1517,6 +1528,10 @@ body.is-ready .hero__headline-line:nth-child(3) {
   .film-frame__topline {
     align-items: start;
     flex-direction: column;
+  }
+
+  .film-frame__controls {
+    width: 100%;
   }
 
   .film-frame__play {
