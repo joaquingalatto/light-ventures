@@ -4218,3 +4218,317 @@ main {
     filter: none;
   }
 }
+
+/* Structural audit refinements */
+
+.hero__frame,
+.about-grid,
+.about-points,
+.film-shell,
+.focus-grid-wrap,
+.thesis-layout-wrap,
+.why-layout,
+.contact-panel,
+.statement__inner {
+  width: min(100%, 78rem);
+  margin-inline: auto;
+}
+
+.vector-sector,
+.about-points,
+.focus-grid-wrap,
+.thesis-layout-wrap,
+.timeline,
+.why-grid,
+.contact-panel,
+.film-frame,
+.hero__support,
+.hero__details,
+.about-grid__intro,
+.approach-display {
+  isolation: isolate;
+}
+
+.vector-sector::before,
+.vector-sector::after,
+.about-points::before,
+.about-points::after,
+.section--focus::before,
+.section--thesis::before,
+.section--why::before,
+.section--why::after,
+.timeline__curves,
+.hero__plane,
+.hero__chevrons,
+.hero__chevrons--secondary,
+.about-grid__orbits,
+.approach-display__orbits {
+  z-index: 0;
+  pointer-events: none;
+}
+
+.vector-sector > *,
+.about-points > *,
+.focus-grid > *,
+.thesis-layout > *,
+.timeline > *,
+.why-grid > *,
+.contact-panel > *,
+.film-frame > *,
+.hero__support > *,
+.hero__details > *,
+.about-grid__intro > *,
+.approach-display > * {
+  position: relative;
+  z-index: 1;
+}
+
+.section {
+  padding-block: clamp(6rem, 8vw, 7.5rem);
+}
+
+.section__head {
+  width: min(100%, 60rem);
+  margin-inline: auto;
+  margin-bottom: 3.2rem;
+}
+
+.section--about .section__head,
+.section--approach .section__head,
+.section--why .section__head {
+  margin-inline: 0;
+}
+
+.hero__frame {
+  width: min(96vw, 1640px);
+}
+
+.hero__support {
+  padding-left: 1rem;
+}
+
+.hero__support::before {
+  width: 4.6rem;
+  height: 4.6rem;
+}
+
+.hero__actions {
+  margin-left: clamp(-2.4rem, -1.6vw, -1rem);
+}
+
+.about-grid {
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  align-items: end;
+  column-gap: clamp(2rem, 4.5vw, 4rem);
+}
+
+.about-grid__intro {
+  max-width: 42rem;
+  min-height: auto;
+  padding-top: 0.2rem;
+}
+
+.about-grid__intro h2 {
+  max-width: 6.2ch;
+  font-size: clamp(5rem, 10vw, 8.5rem);
+  line-height: 0.84;
+  letter-spacing: -0.06em;
+}
+
+.about-grid__orbits {
+  left: 24%;
+  top: 0.05rem;
+  opacity: 0.54;
+}
+
+.about-grid__body {
+  max-width: 31rem;
+  padding-bottom: 0.7rem;
+}
+
+.about-points {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 2rem;
+  align-items: start;
+}
+
+.about-point {
+  grid-column: auto;
+  padding-top: 1.1rem;
+}
+
+.about-point h3,
+.focus-card h3,
+.thesis-panel h3,
+.why-grid__item h3,
+.timeline__label {
+  max-width: 16ch;
+}
+
+.film-shell {
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  align-items: start;
+}
+
+.focus-grid-wrap,
+.thesis-layout-wrap {
+  padding-top: 0.9rem;
+}
+
+.focus-grid,
+.thesis-layout {
+  position: relative;
+  border-top: 1px solid rgba(42, 40, 41, 0.18);
+}
+
+.focus-card,
+.focus-card--wide,
+.focus-card--tall,
+.focus-card--full {
+  grid-template-columns: 4rem minmax(0, 16rem) minmax(0, 1fr);
+}
+
+.focus-card p,
+.thesis-panel p {
+  max-width: 38rem;
+}
+
+.statement {
+  min-height: 126svh;
+}
+
+.statement__inner {
+  min-height: 126svh;
+  max-width: min(74rem, 100%);
+}
+
+.statement__sticky {
+  top: clamp(6.8rem, 13vh, 8.6rem);
+}
+
+.statement__text {
+  max-width: 13.5ch;
+}
+
+.thesis-layout {
+  gap: 1rem 1.35rem;
+}
+
+.thesis-panel {
+  min-height: 15.5rem;
+}
+
+.section--focus::before,
+.section--thesis::before {
+  opacity: 0.24;
+}
+
+.section--why::before,
+.section--why::after {
+  opacity: 0.18;
+}
+
+.section--approach {
+  padding-bottom: 7rem;
+}
+
+.timeline {
+  min-height: 32rem;
+  margin-top: 3rem;
+}
+
+.timeline__curves {
+  inset: -1rem -3rem 0;
+  opacity: 0.38;
+}
+
+.timeline__curves span {
+  width: 118%;
+  left: -9%;
+  border-color: rgba(42, 40, 41, 0.26);
+}
+
+.timeline__stage {
+  width: 21.5%;
+}
+
+.timeline__stage::before {
+  top: 0.1rem;
+  color: rgba(16, 31, 59, 0.72);
+}
+
+.timeline__stage:nth-of-type(1) {
+  left: 0;
+  top: 14.5rem;
+}
+
+.timeline__stage:nth-of-type(2) {
+  left: 26.5%;
+  top: 18rem;
+}
+
+.timeline__stage:nth-of-type(3) {
+  left: 53%;
+  top: 10rem;
+}
+
+.timeline__stage:nth-of-type(4) {
+  right: 0;
+  top: 2rem;
+}
+
+.timeline__marker {
+  width: 3.4rem;
+  height: 3.4rem;
+  top: -3.55rem;
+}
+
+.why-layout {
+  align-items: start;
+}
+
+.why-grid {
+  padding-top: 0.9rem;
+}
+
+@media (max-width: 1100px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    row-gap: 1.8rem;
+  }
+
+  .about-grid__intro,
+  .about-grid__body,
+  .section__head {
+    max-width: 100%;
+  }
+
+  .about-grid__intro h2 {
+    max-width: 7ch;
+    font-size: clamp(4rem, 11vw, 6.4rem);
+  }
+
+  .about-points {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .about-points::before,
+  .about-points::after,
+  .why-grid::before,
+  .timeline__curves,
+  .section--focus::before,
+  .section--thesis::before {
+    display: none;
+  }
+
+  .film-shell,
+  .why-layout,
+  .contact-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__actions {
+    margin-left: 0;
+  }
+}
