@@ -1,0 +1,10 @@
+{
+  "name": "light-ventures-homepage",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Editorial one-page MVP homepage for Light Ventures",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  }
+}
