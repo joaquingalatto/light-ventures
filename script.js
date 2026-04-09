@@ -17,6 +17,10 @@ const scrollVector = document.querySelector("[data-scroll-vector]");
 
 const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
 const updatePaintText = () => {
   if (!statementText || !paintSection || !paintLines.length) return;
 
@@ -109,6 +113,7 @@ const initPreloader = () => {
 window.addEventListener("scroll", handleScroll, { passive: true });
 
 window.addEventListener("load", () => {
+  window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   initPreloader();
   updateScrollState();
 });
